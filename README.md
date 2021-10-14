@@ -4,8 +4,7 @@
 > Showing COVID-19 infected patients in Republic of Korea through Chrome Extension  
 
 ![Generic badge](https://img.shields.io/badge/Version-1.2.0-green.svg)
-![Generic badge](https://img.shields.io/badge/Publishing-TRUE-green.svg)
-![Generic badge](https://img.shields.io/badge/Major_language-javaScript-green.svg)
+![Generic badge](https://img.shields.io/badge/Publishing-TRUE-green.svg)  
 
 <img src="img\Git_Intro_1.png" width="400"/> <img src="img\Git_Intro_2.png" width="400"/>
 
