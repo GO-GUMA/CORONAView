@@ -1,6 +1,7 @@
 window.open = setUp();
 var APIKeys = 'YOUR_API_KEY'
 
+
 function setUp() { //get selected data when it's started
     var areaArr = ["서울특별시","부산광역시","대구광역시","인천광역시","광주광역시","대전광역시","울산광역시","세종특별자치시","경기도","강원도","충청북도","충청남도","전라북도","전라남도","경상북도","경상남도","제주특별자치도"];
 
@@ -11,7 +12,9 @@ function setUp() { //get selected data when it's started
         }
 
         document.getElementById('area').getElementsByTagName('option')[areaCode - 1].selected = true;
-        
+
+        //var districtCount = [0,25,16,0,10,0,6,0,0,31,18,11,15,13,22,22,18,0];
+        // var districtCount = [0,25,16,0,0,0,6,6,0,31,18,11,15,13,22,22,18,0];
         var districtCount = [0,25,16,8,10,5,6,6,0,31,18,11,15,13,22,22,18,0];
         var requestURL = 'http://api.go-guma.com/Area' + areaCode + '/?Key=' + APIKeys;
         fetch(requestURL).then(res => res.json()).then((out) => {
@@ -22,13 +25,13 @@ function setUp() { //get selected data when it's started
                     document.getElementById('district').getElementsByTagName('option')[(i+2)].hidden = false;
                 }
 
-                for(var i = (districtCount[areaCode] + 2); i<30; i++) {
+                for(var i = (districtCount[areaCode] + 2); i<33; i++) {
                     document.getElementById('district').getElementsByTagName('option')[i].hidden = true;
                 }
 
                 document.getElementById('district').disabled = false;
             } else {
-                for(var i = 1; i<30; i++) {
+                for(var i = 1; i<33; i++) {
                     document.getElementById('district').getElementsByTagName('option')[i].hidden = true;
                 }
                 document.getElementById('district').disabled = true;
@@ -45,7 +48,7 @@ function setUp() { //get selected data when it's started
         }
 
         if(areaCode == 6) {
-            for(var i = 7; i<30; i++) {
+            for(var i = 7; i<33; i++) {
                 document.getElementById('district').getElementsByTagName('option')[i].hidden = true;
             }
         }
@@ -86,6 +89,7 @@ document.getElementById('selectArea').onclick = function() { // Select new data
 
 document.getElementById('area').onchange = function() {
     var areaCode = document.getElementById('area').value;
+    //var districtCount = [0,25,16,0,10,0,6,0,0,31,18,11,15,13,22,22,18,0];
     var districtCount = [0,25,16,8,10,5,6,6,0,31,18,11,15,13,22,22,18,0];
     document.getElementById('district').getElementsByTagName('option')[0].selected = true;
 
@@ -98,14 +102,14 @@ document.getElementById('area').onchange = function() {
                 document.getElementById('district').getElementsByTagName('option')[(i+2)].hidden = false;
             }
 
-            for(var i = (districtCount[areaCode] + 2); i<30; i++) {
+            for(var i = (districtCount[areaCode] + 2); i<33; i++) {
                 document.getElementById('district').getElementsByTagName('option')[i].hidden = true;
             }
 
             document.getElementById('district').disabled = false;
             chrome.storage.sync.set({'serveData':out.serveData.types});
         } else {
-            for(var i = 1; i<30; i++) {
+            for(var i = 1; i<33; i++) {
                 document.getElementById('district').getElementsByTagName('option')[i].hidden = true;
             }
             document.getElementById('district').disabled = true;
@@ -115,7 +119,7 @@ document.getElementById('area').onchange = function() {
 
     if(areaCode == 6 || areaCode == 7) {
         document.getElementById('district').disabled = false;
-        for(var i = 7; i<30; i++) {
+        for(var i = 7; i<33; i++) {
             document.getElementById('district').getElementsByTagName('option')[i].hidden = true;
         }
     }
