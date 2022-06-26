@@ -1,15 +1,15 @@
 #topDiv {
-    min-width: 250px;
+    min-width: 270px;
     height: 65px;
 }
 
 #midDiv {
-    min-width: 250px;
+    min-width: 270px;
     height: 70px;
 }
 
 #botDiv {
-    min-width: 250px;
+    min-width: 270px;
     height: 20px;
     position: relative;
 }
